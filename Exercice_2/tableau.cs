@@ -1,33 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Exercice_2
+namespace Exerciec2
 {
     class tableau
     {
         static void Main(string[] args)
         {
-            int[] t = { 3, 5, 9, 10, 15 };
-            int n, i, p;
-            Console.WriteLine("entrez un nombre:");
-            int x = Convert.ToInt32(Console.ReadLine());
-            t[4] = x;
-            for (i = 4; i > 0; i--)
+            int[] tab1 = new int[] { 3, 5, 10, 15, 20 };
+            int[] tab2 = tab1;
+
+            int nbr;
+            Console.WriteLine("Entrez le nombre : ");
+            nbr = int.Parse(Console.ReadLine());
+            int i = 0;
+            while (i < tab1.Length)
             {
-                if (t[i - 1] > x)
+                tab2[i] = tab1[i];
+                i++;
+
+            }
+            tab2[tab1.Length] = nbr;
+            for (int j = tab2.Length - 1; j >= 0; j--)
+            {
+                if (nbr < tab2[j])
                 {
-                    t[i] = t[i - 1];
-                    t[i - 1] = x;
+                    int aide = tab2[j];
+                    tab2[j] = nbr;
+                    nbr = aide;
                 }
             }
 
-            for (i = 0; i < 5; i++)
-            {
-                Console.Write("\t" + t[i]);
-            }
+            tab1 = tab2;
         }
     }
 }
