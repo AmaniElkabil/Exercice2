@@ -2,7 +2,7 @@
 
 namespace Exerciec2
 {
-    class tableau
+    internal class Program
     {
         static void Main(string[] args)
         {
